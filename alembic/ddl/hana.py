@@ -12,7 +12,7 @@ class HanaImpl(DefaultImpl):
     __dialect__ = 'hana'
     transactional_ddl = True
 
-@compiles(AddColumn, 'mssql')
+@compiles(AddColumn, 'hana')
 def visit_add_column(element, compiler, **kw):
     return "%s %s" % (
         alter_table(compiler, element.table_name, element.schema),
